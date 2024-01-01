@@ -1,0 +1,12 @@
+.gridButton {
+  color: black;
+  background-color: white;
+  text-align: center;
+  border: 1px solid black;
+  height: 40px;
+  width: 40px;
+  float:  left;
+}
+.rowContainer {
+  width: 120px;
+}
