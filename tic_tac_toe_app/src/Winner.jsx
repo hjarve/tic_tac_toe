@@ -1,12 +1,13 @@
 import React from "react";
 
-const GameOver = ({restart}) => {
-  return(
+const Winner = ({winner, restart}) => {
+  return (
     <div>
-      <h2>It's a tie</h2>
+      <h2>{winner} won!</h2>
       <button className="restartButton" onClick={restart}>Start a new game</button>
     </div>
-  );
-};
+    
+  )
+}
 
-export default GameOver;
+export default Winner;

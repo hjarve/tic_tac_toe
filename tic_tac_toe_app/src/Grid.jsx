@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Row from "./Row";
 
 const Grid = ({xTurn, gridValues, setGridValues}) => {
