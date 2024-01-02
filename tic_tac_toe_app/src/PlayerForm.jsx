@@ -17,11 +17,11 @@ const PlayerForm = ({setPlayerX, setPlayerO}) => {
       <form onSubmit={handleSubmit}>
         <div>
           Player X: 
-          <input name='x' value={x} onChange={(event) => setX(event.target.value)} maxLength={20} minLength={1}/>
+          <input name='x' value={x} onChange={(event) => setX(event.target.value)} maxLength={20} minLength={1} required/>
         </div>
         <div>
           Player O: 
-          <input name='o' value={o} onChange={(event) => setO(event.target.value)} maxLength={20} minLength={1}/>
+          <input name='o' value={o} onChange={(event) => setO(event.target.value)} maxLength={20} minLength={1} required/>
         </div>
         <button type='submit'>OK</button>
       </form>
