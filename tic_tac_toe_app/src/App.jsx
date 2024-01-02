@@ -101,6 +101,7 @@ function App() {
           xTurn={xTurn}
           gridValues={gridValues}
           setGridValues={setGridValues}
+          playingAllowed={!win}
         />
       </div>
       }

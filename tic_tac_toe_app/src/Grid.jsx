@@ -1,6 +1,6 @@
 import Row from "./Row";
 
-const Grid = ({xTurn, gridValues, setGridValues}) => {
+const Grid = ({xTurn, gridValues, setGridValues, playingAllowed}) => {
 
   return(
     <div>
@@ -12,7 +12,9 @@ const Grid = ({xTurn, gridValues, setGridValues}) => {
             rowIndex={n} 
             gridValues={gridValues}
             setGridValues={setGridValues}
-            player={xTurn ? 'X' : 'O'}/>
+            player={xTurn ? 'X' : 'O'}
+            playingAllowed={playingAllowed}
+          />
         )
       })}
     </div>

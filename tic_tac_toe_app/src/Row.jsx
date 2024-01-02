@@ -1,6 +1,6 @@
 import React from "react";
 
-const Row = ({rowArray, rowIndex, gridValues, setGridValues, player}) => {
+const Row = ({rowArray, rowIndex, gridValues, setGridValues, player, playingAllowed}) => {
 
   return(
     <div className="rowContainer">
@@ -10,7 +10,7 @@ const Row = ({rowArray, rowIndex, gridValues, setGridValues, player}) => {
           <button 
             className="gridButton"
             onClick={() => {
-              if (!content) {
+              if (!content && playingAllowed) {
                 setGridValues(gridValues.map((row, n) => {
                   return(
                     row.map((value, m) => {
