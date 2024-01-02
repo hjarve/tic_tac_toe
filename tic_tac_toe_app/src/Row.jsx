@@ -11,15 +11,16 @@ const Row = ({rowArray, rowIndex, gridValues, setGridValues, player}) => {
           <button 
             className="gridButton"
             onClick={() => {
-              setGridValues(gridValues.map((row, n) => {
-                return(
-                  row.map((value, m) => {
-                    console.log(value);
-                    if(n===rowIndex && m===i && value==='free') return player
-                    else return value;
-                  })
-                )
-              }))
+              if (!content) {
+                setGridValues(gridValues.map((row, n) => {
+                  return(
+                    row.map((value, m) => {
+                      if(n===rowIndex && m===i && value==='free') return player
+                      else return value;
+                    })
+                  )
+                }))
+              }
             }}
             key={i}
           >

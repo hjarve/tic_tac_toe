@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     setXTurn(!xTurn);
-  }, [gridValues])
+  }, [gridValues]);
 
   return (
     <>
@@ -27,7 +27,6 @@ function App() {
         <p>Player X: {playerX}</p>
         <p>Player O: {playerO}</p> 
         <p>Playing {playing}</p>
-        <button onClick={() => setXTurn(!xTurn)}>Change turn</button>
         <Grid 
           xTurn={xTurn}
           gridValues={gridValues}
