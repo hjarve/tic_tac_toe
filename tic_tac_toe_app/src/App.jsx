@@ -3,6 +3,7 @@ import PlayerForm from './PlayerForm';
 import Grid from './Grid';
 import GameOver from './GameOver';
 import Winner from './Winner';
+import History from './History';
 import './app.css';
 
 function App() {
@@ -105,6 +106,7 @@ function App() {
         />
       </div>
       }
+      <History/>
     </div>
   )
 }
