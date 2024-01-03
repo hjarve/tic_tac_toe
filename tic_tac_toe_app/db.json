@@ -13,20 +13,6 @@
       "playerO": "Kalle",
       "winner": "tie",
       "date": "2023-06-29T18:25:43.511Z"
-    },
-    {
-      "playerX": "x",
-      "playerO": "o",
-      "winner": "x",
-      "date": "2024-01-03T12:47:36.990Z",
-      "id": 3
-    },
-    {
-      "playerX": "sryj",
-      "playerO": "sth",
-      "winner": "sth",
-      "date": "2024-01-03T12:47:48.449Z",
-      "id": 4
     }
   ]
 }

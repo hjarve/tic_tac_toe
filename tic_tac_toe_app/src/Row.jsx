@@ -1,4 +1,3 @@
-import React from "react";
 
 const Row = ({rowArray, rowIndex, gridValues, setGridValues, player, playingAllowed}) => {
 
