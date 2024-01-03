@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/history
+Content-Type: application/json
+
+{
+  "playerX": "Mickey",
+  "playerO": "Minnie",
+  "winner": "tie",
+  "date": "2023-04-23T18:25:43.511Z"
+}
