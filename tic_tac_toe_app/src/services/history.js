@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = 'http://localhost:3001/history';
+const baseUrl = 'http://localhost:3001/api/history';
 
 const getAll = () => {
   return axios.get(baseUrl);
