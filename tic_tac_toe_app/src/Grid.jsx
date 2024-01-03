@@ -3,7 +3,7 @@ import Row from "./Row";
 const Grid = ({xTurn, gridValues, setGridValues, playingAllowed}) => {
 
   return(
-    <div>
+    <div className="grid">
       {gridValues.map((row, n) => {
         return(
           <Row

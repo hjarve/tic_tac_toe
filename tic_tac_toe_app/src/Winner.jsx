@@ -1,10 +1,8 @@
-import React from "react";
 
-const Winner = ({winner, restart}) => {
+const Winner = ({winner}) => {
   return (
     <div>
       <h2>{winner} won!</h2>
-      <button className="restartButton" onClick={restart}>Start a new game</button>
     </div>
     
   )

@@ -1,12 +1,14 @@
 import React from "react";
 
-const History = () => {
-
-  const historyArray = [{playerX: 'Hanna ', playerO: 'Jenni', winner: 'tie', date: new Date()}, {playerX: 'John', playerO: 'Jane', winner: 'John', date: new Date()}]
+const History = ({historyArray}) => {
 
   return (
-    <div>
+    <div className="historyContainer">
       <h3>History:</h3>
+      {historyArray.length === 0 ? 
+      <p>No history data available</p>
+      :
+<div>
       <table>
         <thead>
           <tr>
@@ -17,18 +19,23 @@ const History = () => {
         </tr>
         </thead>
         <tbody>
-          {historyArray.map((game, i) => {
+          {historyArray.map((game) => {
             return (
-              <tr key={i}>
+              <tr key={game.id}>
                 <td>{game.playerX}</td>
                 <td>{game.playerO}</td>
                 <td>{game.winner}</td>
-                <td>{game.date.toLocaleDateString()}</td>
+                <td>{new Date(game.date).toLocaleDateString()}</td>
               </tr> 
             )
           })}
         </tbody>
       </table>
+    </div>
+    
+    }
+    
+      
     </div>
     
   )

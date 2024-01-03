@@ -4,6 +4,8 @@ import Grid from './Grid';
 import GameOver from './GameOver';
 import Winner from './Winner';
 import History from './History';
+import RestartButtons from './RestartButtons';
+import historyService from './services/history';
 import './app.css';
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
     return [['free', 'free', 'free'],['free', 'free', 'free'],['free', 'free', 'free']]
   }
 
+  const [historyArray, setHistoryArray] = useState([]);
   const [playerX, setPlayerX] = useState('');
   const [playerO, setPlayerO] = useState('');
   const [xTurn, setXTurn] = useState(true);
@@ -18,6 +21,14 @@ function App() {
   const [gridValues, setGridValues] = useState(initializeGridValues());
   const [gameOver, setGameOver] = useState(false);
   const [win, setWin] = useState(false);
+
+  useEffect(() => {
+    historyService
+      .getAll()
+      .then(response => {
+        setHistoryArray(response.data);
+      })
+  }, []);
 
   const restart = () => {
     setPlayerX('');
@@ -85,6 +96,18 @@ function App() {
     }
   }, [gridValues]);
 
+  const handleSave = (event) => {
+    event.preventDefault();
+    const result = win ? (xTurn ? playerX : playerO) : 'tie';
+    const newObject = {playerX: playerX, playerO: playerO, winner: result, date: new Date().toJSON()};
+    historyService
+      .create(newObject)
+      .then(response => {
+        setHistoryArray([...historyArray, response.data]);
+      });
+    restart();
+  }
+
   return (
     <div>
       <h1>Tic Tac Toe</h1>
@@ -96,8 +119,10 @@ function App() {
           <p>Player O: {playerO}</p>  
         </div>
         {!(win | gameOver) ? <h3 className={xTurn ? 'xPlaying' : 'oPlaying'}>Playing {playing}</h3> : null}
-        {gameOver ? <GameOver restart={restart}/> : null}
-        {win ? <Winner winner={xTurn ? playerX : playerO} restart={restart}/> : null} 
+        {gameOver ? <GameOver/> : null}
+        {win ? <Winner winner={xTurn ? playerX : playerO}/> : null} 
+        {win | gameOver ? <RestartButtons save={handleSave} restart={restart}/> : null}
+        
         <Grid 
           xTurn={xTurn}
           gridValues={gridValues}
@@ -106,7 +131,7 @@ function App() {
         />
       </div>
       }
-      <History/>
+      <History historyArray={historyArray}/>
     </div>
   )
 }

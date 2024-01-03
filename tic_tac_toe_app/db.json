@@ -1,0 +1,32 @@
+{
+  "history": [
+    {
+      "id": 1,
+      "playerX": "John",
+      "playerO": "Jane",
+      "winner": "Jane",
+      "date": "2022-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "playerX": "Ville",
+      "playerO": "Kalle",
+      "winner": "tie",
+      "date": "2023-06-29T18:25:43.511Z"
+    },
+    {
+      "playerX": "x",
+      "playerO": "o",
+      "winner": "x",
+      "date": "2024-01-03T12:47:36.990Z",
+      "id": 3
+    },
+    {
+      "playerX": "sryj",
+      "playerO": "sth",
+      "winner": "sth",
+      "date": "2024-01-03T12:47:48.449Z",
+      "id": 4
+    }
+  ]
+}
