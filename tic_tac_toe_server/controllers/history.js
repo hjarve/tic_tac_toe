@@ -38,7 +38,7 @@ historyRouter.post('/', (request, response) => {
   const obj = {...body, id};
 
   history = history.concat(obj);
-  response.json(obj);
+  response.status(201).json(obj);
 });
 
 module.exports = historyRouter;
