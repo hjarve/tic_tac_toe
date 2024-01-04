@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import PlayerForm from './PlayerForm';
-import Grid from './Grid';
-import GameOver from './GameOver';
-import Winner from './Winner';
-import History from './History';
-import RestartButtons from './RestartButtons';
+import PlayerForm from './components/PlayerForm';
+import Grid from './components/Grid';
+import GameOver from './components/GameOver';
+import Winner from './components/Winner';
+import History from './components/History';
+import RestartButtons from './components/RestartButtons';
 import historyService from './services/history';
 import './app.css';
 
