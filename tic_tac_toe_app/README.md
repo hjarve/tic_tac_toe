@@ -1,8 +1,21 @@
-# React + Vite
+# Tic Tac Toe App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a  tic tac toe web app created with React.js, Vite, and Axios.
 
-Currently, two official plugins are available:
+## Getting started
+These instructions will get you a copy of the project up and running on your local machine.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installing
+Make sure node.js is installed, navigate to the root of the frontend directory (tic_tac_toe_app) and install the project prerequisites with:
+
+`npm i`
+
+### Starting the project 
+First, make sure that the tic_tac_toe_server is running.  
+
+To run the project in development mode, start it with:  
+
+`npm run dev`
+
+## More about the app
+
