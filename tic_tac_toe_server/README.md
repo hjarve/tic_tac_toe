@@ -11,9 +11,11 @@ Make sure node.js is installed, navigate to the root of the backend directory (t
 `npm i`
 
 ### Starting the project
-To run the project with node, start it with:
+To run the project with node, start it with:  
+
 `npm start`
-To runt the project in development mode that uses nodemon, start it with:
+To runt the project in development mode that uses nodemon, start it with:  
+
 `npm run dev`
 
 The server will start on port 3001.
