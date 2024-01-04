@@ -3,22 +3,24 @@ const app = require('../app');
 
 const api = supertest(app);
 
+const url = '/api/history'
+
 describe('History api', () => {
   test('History is returned as json', async () => {
     await api
-      .get('/api/history')
+      .get(url)
       .expect(200)
       .expect('Content-Type', /application\/json/);
   });
 
   test('GET returns an array with length of 2', async () => {
-    const response = await api.get('/api/history');
+    const response = await api.get(url);
 
     expect(response.body).toHaveLength(2);
   });
 
   test('First object in history array has all the properties', async () => {
-    const response = await api.get('/api/history');
+    const response = await api.get(url);
 
     expect(response.body[0].playerX).toBe('John');
     expect(response.body[0].playerO).toBe('Jane');
@@ -35,12 +37,12 @@ describe('History api', () => {
     };
 
     await api
-      .post('/api/history')
+      .post(url)
       .send(newObject)
       .expect(201)
       .expect('Content-Type', /application\/json/);
 
-    const response = await api.get('/api/history');
+    const response = await api.get(url);
 
     expect(response.body).toHaveLength(3);
     expect(response.body[2].playerX).toBe('xxx');
@@ -57,51 +59,61 @@ describe('History api', () => {
     };
 
     await api
-      .post('/api/history')
+      .post(url)
       .send(newObject)
       .expect(201)
       .expect('Content-Type', /application\/json/);
 
-    const response = await api.get('/api/history');
+    const response = await api.get(url);
 
     expect(response.body).toHaveLength(4);
 
     expect(response.body[3]).toHaveProperty('date');
   });
 
+  test('When an object is added, it is returned with an id', async () => {
+    const newObject = {
+      playerX: 'xxx',
+      playerO: 'ooo',
+      winner: 'tie'
+    };
+
+    const response = await api.post(url).send(newObject);
+
+    expect(response.body).toHaveProperty('id');
+  })
+
   describe('An object is not added', () => {
     test('when a player data is missing', async () => {
-        const newObject = {
-          playerO: 'ooo',
-          winner: 'tie'
-        };
+      const newObject = {
+        playerO: 'ooo',
+        winner: 'tie'
+      };
 
-        await api
-          .post('/api/history')
-          .send(newObject)
-          .expect(400);
+      await api
+        .post(url)
+        .send(newObject)
+        .expect(400);
 
-        const response = await api.get('/api/history');
+      const response = await api.get(url);
 
-        expect(response.body).toHaveLength(4);
-      });
+      expect(response.body).toHaveLength(5);
+    });
 
-      test('when a winner data is missing', async () => {
-        const newObject = {
-          playerX: 'xxx',
-          playerO: 'ooo',
-        };
+    test('when a winner data is missing', async () => {
+      const newObject = {
+        playerX: 'xxx',
+        playerO: 'ooo',
+      };
 
-        await api
-          .post('/api/history')
-          .send(newObject)
-          .expect(400);
+      await api
+        .post(url)
+        .send(newObject)
+        .expect(400);
 
-        const response = await api.get('/api/history');
+      const response = await api.get(url);
 
-        expect(response.body).toHaveLength(4);
-      });
-
-  })
-  
+      expect(response.body).toHaveLength(5);
+    });
+  });
 });
