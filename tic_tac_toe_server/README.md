@@ -15,7 +15,7 @@ To run the project with node, start it with:
 
 `npm start`  
 
-To runt the project in development mode that uses nodemon, start it with:  
+To run the project in development mode that uses nodemon, start it with:  
 
 `npm run dev`
 
