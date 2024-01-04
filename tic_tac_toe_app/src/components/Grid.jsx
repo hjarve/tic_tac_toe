@@ -8,7 +8,6 @@ const Grid = ({xTurn, gridValues, setGridValues, playingAllowed}) => {
         return(
           <Row
             key={n} 
-            rowArray={row} 
             rowIndex={n} 
             gridValues={gridValues}
             setGridValues={setGridValues}
