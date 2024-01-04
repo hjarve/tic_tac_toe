@@ -13,7 +13,8 @@ Make sure node.js is installed, navigate to the root of the backend directory (t
 ### Starting the project
 To run the project with node, start it with:  
 
-`npm start`
+`npm start`  
+
 To runt the project in development mode that uses nodemon, start it with:  
 
 `npm run dev`
