@@ -6,7 +6,7 @@ const Grid = ({xTurn, gridValues, setGridValues, playingAllowed}) => {
     <div className="grid">
       {gridValues.map((row, n) => {
         return(
-          <Row
+          <Row 
             key={n} 
             rowIndex={n} 
             gridValues={gridValues}

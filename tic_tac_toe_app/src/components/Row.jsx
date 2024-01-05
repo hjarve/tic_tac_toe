@@ -15,7 +15,7 @@ const Row = ({rowIndex, gridValues, setGridValues, player, playingAllowed=true})
   }
 
   return(
-    <div className="rowContainer">
+    <div className="rowContainer" data-testid='rowContainer'>
       {gridValues[rowIndex].map((value, i) => {
         let content = value !== 'free' ? value : null;
         return(
