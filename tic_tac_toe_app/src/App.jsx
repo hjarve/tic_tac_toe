@@ -133,7 +133,7 @@ function App() {
       }
       <History historyArray={historyArray}/>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
