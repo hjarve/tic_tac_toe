@@ -5,6 +5,7 @@ import GameOver from './components/GameOver';
 import Winner from './components/Winner';
 import History from './components/History';
 import RestartButtons from './components/RestartButtons';
+import Notification from './components/Notification';
 import historyService from './services/history';
 import './app.css';
 
@@ -21,12 +22,24 @@ function App() {
   const [gridValues, setGridValues] = useState(initializeGridValues());
   const [gameOver, setGameOver] = useState(false);
   const [win, setWin] = useState(false);
+  const [message, setMessage] = useState(null);
+
+  const showNotification = (notificationMessage) => {
+    setMessage(notificationMessage);
+    setTimeout(() => {
+      setMessage(null);
+    }, 5000);
+  }
 
   useEffect(() => {
     historyService
       .getAll()
       .then(response => {
         setHistoryArray(response.data);
+      })
+      .catch(error =>{
+        console.log(error.message);
+        showNotification('History could not be retreived. Do you have the server running?');
       })
   }, []);
 
@@ -38,6 +51,8 @@ function App() {
     setGameOver(false);
     setWin(false);
   };
+  
+  
   
   useEffect(() => {
     if(xTurn) setPlaying(`X: ${playerX}`);
@@ -104,6 +119,10 @@ function App() {
       .create(newObject)
       .then(response => {
         setHistoryArray([...historyArray, response.data]);
+      })
+      .catch(error => {
+        console.log(error.message);
+        showNotification('The game could not be saved.');
       });
     restart();
   }
@@ -131,6 +150,7 @@ function App() {
         />
       </div>
       }
+      <Notification message={message}/>
       <History historyArray={historyArray}/>
     </div>
   );

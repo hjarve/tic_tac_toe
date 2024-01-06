@@ -32,5 +32,16 @@ table, th, td {
 }
 .historyContainer {
   position: relative;
-  left: 10px
+  left: 10px;
+}
+.notificationContainer{
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: red;
+  margin-top: 10px;
+}
+.notificationText {
+  font-weight: bold;
+  padding-left: 10px;
 }
