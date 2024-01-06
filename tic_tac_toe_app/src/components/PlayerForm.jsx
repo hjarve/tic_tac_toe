@@ -1,8 +1,9 @@
 import { useState } from "react";
 
+// Form to input the names of the players
 const PlayerForm = ({setPlayerX, setPlayerO}) => {
   const [x, setX] = useState('');
-  const [o, setO] = useState('')
+  const [o, setO] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();

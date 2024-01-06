@@ -52,13 +52,12 @@ function App() {
     setWin(false);
   };
   
-  
-  
   useEffect(() => {
     if(xTurn) setPlaying(`X: ${playerX}`);
     else setPlaying(`O: ${playerO}`);
   }, [xTurn, playerX, playerO]);
 
+  // Checks for possible win or tie after every turn
   useEffect(() => {
     const checkForWinning = () => {
       if (gridValues[0][0] !== 'free' && gridValues[0][0] === gridValues[1][1] && gridValues[0][0] === gridValues[2][2]) {
@@ -141,7 +140,6 @@ function App() {
         {gameOver ? <GameOver/> : null}
         {win ? <Winner winner={xTurn ? playerX : playerO}/> : null} 
         {win | gameOver ? <RestartButtons save={handleSave} restart={restart}/> : null}
-        
         <Grid 
           xTurn={xTurn}
           gridValues={gridValues}

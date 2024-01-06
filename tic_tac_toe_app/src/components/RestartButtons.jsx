@@ -1,4 +1,5 @@
 
+// Shown when the game ends
 const RestartButtons = ({save, restart}) => {
 
   return(
