@@ -1,4 +1,4 @@
-# tic_tac_toe
+# Tic Tac Toe sample project
 
 This is the repo of my sample project Tic Tac Toe. The repo contains both the frontend and the backend of the game.  
 
